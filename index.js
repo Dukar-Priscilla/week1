@@ -2,13 +2,20 @@
 
 const http = require("http");
 const handleAllRequest = (req, res) => {
-  res.write("hi,i just recieved a request");
+ 
   const url = req.url;
-  if (url === "/contact") {
-    res.write("<h1>Welcome to home page</h1>");
-  } else if (url === "/about") res.write("<h1>Welcome to the about page</h1>");
-  console.log(req);
-};
+  if (url === "/"){
+    res.write("<h1>Welcome to my node.js server </h1>")
+  }else if(url ==='/about'){
+    res.write("<h1>This is the about page</h1>")
+  }else if(url ==='/contact'){
+    res.write("<h1>Contact us @dukarpriscilla@gmail.com</h1>")
+  }else{
+    res.write("<h1>404 page not found</h1>")
+  }
+  res.end()
+
+  }
 
 const server = http.createServer(handleAllRequest);
 
